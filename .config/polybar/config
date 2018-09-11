@@ -1,0 +1,132 @@
+[colors]
+
+background = #90000000
+foreground = #ffffffff
+
+white = #ffffff
+gray = #aaa
+
+highlight = #80ffffff
+
+;==================================
+
+[bar/top]
+
+font-0 = "Roboto"
+font-1 = "Font Awesome 5 Free:style=Solid:weight=light:size=8"
+font-2 = "Font Awesome 5 Brands:style=Regular:weight=light:size=10"
+font-3 = "Font Awesome 5 Free:style=Solid:weight=light:size=11"
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+fixed-center = true
+line-size = 2
+
+height = 32
+
+padding = 4
+bspwm-padding = 4
+
+module-margin-right = 4
+
+modules-left = bspwm
+modules-right = volume cpu wireless date
+
+modules-interval = 5
+
+;==================================
+
+[module/bspwm]
+
+type=internal/bspwm
+format = <label-state> <label-mode>
+
+ws-icon-0 = I;%{T2}
+ws-icon-1 = II;%{T3}
+ws-icon-2 = III;%{T2}
+ws-icon-3 = IV;%{T2}
+;ws-icon-4 = VIII;%{T3}
+ws-icon-4 = IX;%{T3}
+ws-icon-5 = X;%{T3}
+ws-icon-default = %{T2}
+
+label-empty = %icon%
+label-empty-padding = ${root.bspwm-padding}
+label-empty-foreground = ${colors.gray}
+
+label-occupied = %icon%
+label-occupied-padding = ${root.bspwm-padding}
+label-occupied-underline = ${colors.gray}
+
+label-focused = %icon%
+label-focused-padding = ${root.bspwm-padding}
+label-focused-underline = ${colors.white}
+label-focused-background = ${colors.highlight}
+
+#label-empty-foreground = #bbb
+#label-occupied-underline = #a0ffffff
+#label-focused-background = #80ffffff
+
+;==================================
+
+[module/volume]
+
+type = internal/pulseaudio
+
+format-volume = <ramp-volume>  <label-volume>
+label-volume = %percentage%%
+label-muted = %{T4} -----%
+
+ramp-volume-0 = %{T4}
+ramp-volume-1 = %{T4}
+
+;==================================
+
+
+[module/date]
+
+type = internal/date
+
+format = %{T4}  <label>
+label =  %date%
+
+date = %%{F#bb}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+
+interval = 1
+
+;==================================
+
+[module/wireless]
+
+type = custom/script
+
+format = %{T4}  %{T-}<label>
+exec = awk 'NR == 3 {print $4}' /proc/net/wireless
+interval = ${root.modules-interval}
+
+label = %output:0:3% db
+
+
+;==================================
+
+[module/cpu]
+
+type = internal/cpu
+format = %{T4}  %{T-}<label>
+
+label = %percentage%%
+interval = ${root.modules-interval}
+
+;==================================
+
+[module/xwindow]
+
+type = internal/xwindow
+
+;==================================
+
+[global/wm]
+
+margin-bottom = 0
+margin-top = 0
