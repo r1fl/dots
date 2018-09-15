@@ -18,6 +18,7 @@ alias lock='i3lock -i $HOME/.local/share/fehbg/starwars_kylo.png'
 
 alias unprivdo='sudo -u nobody'
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
+alias touchpy='cp $HOME/Templates/main.py'
 
 #
 # ENVIROMENT VARS
