@@ -20,6 +20,11 @@ alias unprivdo='sudo -u nobody'
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias touchpy='cp $HOME/Templates/main.py'
 
+alias swd='pwd > /tmp/tmp.termwd' # save working directory
+alias rwd='cd $(cat /tmp/tmp.termwd)' # restore working directory
+
+alias pwnthon='ipython2 --profile=pwn2'
+
 #
 # ENVIROMENT VARS
 #
@@ -36,3 +41,4 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1 # dotnet telemetry
 export TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S' # time command output format
 
 export PYTHONPATH=$PYTHONPATH:$HOME/Workspace/py/
+export IPYTHONDIR=$XDG_CONFIG_HOME'/ipython/'
