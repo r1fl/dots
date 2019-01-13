@@ -1,15 +1,10 @@
 #!/bin/bash
 
-#
-# usage: mouse_accel.sh "SteelSeries Rival 300" "Accel Speed" -1
-#
-
 if [ $# -lt 2 ]; then
-	echo "usage: mouse_accel.sh "SteelSeries Rival 300" "Accel Speed" -1"
+	echo "usage: $0 'SteelSeries Rival 300' 'Accel Speed' -1"
 	exit 1
 else
 	SEARCH=$1
-#	PROPERTY=$2
 	VALUE=$2
 fi
 

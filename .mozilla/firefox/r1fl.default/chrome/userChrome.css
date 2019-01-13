@@ -1,0 +1,24 @@
+#contentAreaContextMenu {
+	/*
+	 * bspwm fix of context menu
+	*/
+	margin: 10px 0px 0px 10px;
+}
+
+#TabsToolbar {
+	background-color: #222b36;
+}
+
+tabs#tabbrowser-tabs {
+	--tab-line-color: #55bcce !important;
+}
+
+window#main-window {
+	--toolbar-bgcolor: #48484e !important;
+}
+
+/*
+@-moz-ducument url("about:newtab") {
+	body {
+	}
+}*/

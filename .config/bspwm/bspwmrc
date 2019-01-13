@@ -7,7 +7,7 @@
 # PRE CONFIG
 #
 
-$XDG_CONFIG_HOME/polybar/launch.sh top &
+~/.config/polybar/launch.sh top &
 sxhkd & 
 compton -b &
 
@@ -49,3 +49,5 @@ setxkbmap -layout us,il -option grp:win_space_toggle
 $HOME/.fehbg
 
 alias lock="i3lock -i $HOME/.local/share/fehbg/starwars_kylo.png"
+
+redshift -l 32.451:34.4650
