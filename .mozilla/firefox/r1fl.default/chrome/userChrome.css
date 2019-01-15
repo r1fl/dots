@@ -17,8 +17,10 @@ window#main-window {
 	--toolbar-bgcolor: #48484e !important;
 }
 
-/*
-@-moz-ducument url("about:newtab") {
+
+@-moz-document url("about:newtab") {
 	body {
+		--newtab-background-color: #222b36 !important;
 	}
-}*/
+}
+

@@ -38,10 +38,11 @@ def main():
             print('{}: {}'.format(no, pretitime(delta)), end='\r\n')
             prev = lap
 
-        if ch == -1:
+        if ch != 10:
             laps = laps[:-1]
-        elif ch == 112:
-            input()
+
+            #if ch == ord('s'):
+            #    time.sleep(10)
 
         time.sleep(0.01)
 

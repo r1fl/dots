@@ -1,5 +1,6 @@
 #include ".Xresources.d/xschemes/navy-and-ivory"
 
+URxvt.scrollBar: false
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
@@ -7,9 +8,7 @@ URxvt.perl-lib: /usr/lib/urxvt/perl
 URxvt.perl-ext: default
 URxvt.perl-ext-common: default,resize-font
 
-URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=11
-
-#URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book
-#URxvt.font: xft:Courier Prime Sans:size=11
-
-#URxvt.letterSpace: -2
+!URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=11
+!URxvt.font: xft:Courier Prime Sans:size=11
+!URxvt.font: xft:ProFont for Powerline:style=Regular:size=11
+URxvt.font: xft:Roboto Mono Light for Powerline:style=Regular:size=11

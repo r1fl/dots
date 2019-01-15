@@ -31,6 +31,7 @@ bspwm-padding = 4
 module-margin-right = 4
 
 modules-left = bspwm
+modules-center = spotify
 modules-right = volume cpu wireless date
 
 modules-interval = 5
@@ -57,7 +58,7 @@ label-empty-foreground = ${colors.gray}
 
 label-occupied = %icon%
 label-occupied-padding = ${root.bspwm-padding}
-label-occupied-underline = ${colors.gray}
+label-occupied-underline = ${colors.highlight}
 
 label-focused = %icon%
 label-focused-padding = ${root.bspwm-padding}
@@ -107,6 +108,18 @@ interval = ${root.modules-interval}
 
 label = %output:0:3% db
 
+
+;==================================
+[module/spotify]
+
+type = custom/script
+
+format = <label>
+exec = $HOME/.scripts/spotifystatus.py -p , -f '{play_pause}  {artist}: {song}'
+interval = 0.1
+
+label-foreground = #ddd
+click-left = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
 ;==================================
 

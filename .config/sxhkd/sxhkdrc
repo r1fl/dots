@@ -25,7 +25,6 @@ super + alt + Escape
 
 # lock bspwm
 super + alt + Menu
-#	rofi -show run
 	i3lock -i $HOME/.local/share/fehbg/starwars_kylo.png
 	
 
@@ -44,6 +43,13 @@ super + y
 # swap the current node and the biggest node
 super + g
 	bspc node -s biggest
+
+super + equal
+	bspc config window_gap 5
+	
+super + {plus, minus}
+	let gap=$(bspc config window_gap){+,-}1; \
+	bspc config window_gap $gap
 
 #
 # state/flags

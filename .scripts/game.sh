@@ -11,12 +11,15 @@ VIRSH='virsh -c qemu:///system'
 
 function bash_main() {
 
+	
+	if [[ ! $($VIRSH list --all | grep $DOMAIN) ]]; then
+		echo "domain $DOMAIN wasn't found"
+		exit 1
+	fi
+
 	if [[ ! $($VIRSH list | grep $DOMAIN) ]]; then
 		echo "[*] starting $DOMAIN"
 		$VIRSH start $DOMAIN
-	else
-		echo "domain $DOMAIN wasn't found"
-		exit 1
 	fi
 
 	VENDPROD=$(lsusb | grep $AUDIODEV | awk '{ print $6 }')

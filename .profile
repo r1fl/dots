@@ -33,6 +33,7 @@ alias df='df -h'
 alias pandoc='pandoc --data-dir=$HOME/.local/share/pandoc'
 alias diff='diff --color=auto'
 alias stopwatch="$HOME/.scripts/stopwatch.py"
+alias whatami='echo 0xB055'
 
 #
 # FUNCTIONS
@@ -63,12 +64,12 @@ export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R -N -S' 
 
 export _JAVA_AWT_WM_NONREPARENTING=1 # java gui
-export DOTNET_CLI_TELEMETRY_OPTOUT=1 # dotnet telemetry
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 export TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S' # time command output format
 
 export PYTHONPATH=$PYTHONPATH:$HOME/Workspace/py/
 export IPYTHONDIR=$XDG_CONFIG_HOME'/ipython/'
-export PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin/
+#export PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin/
 
 export VAGRANT_DEFAULT_PROVIDER='libvirt'
