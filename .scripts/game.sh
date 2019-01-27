@@ -43,7 +43,7 @@ function bash_main() {
 			$VIRSH detach-device $DOMAIN $DEVFILE
 
 			echo "[*] shutting down synergy"
-			killall -9 synergys
+			killall -KILL synergys
 
 			return 0
 		fi
@@ -51,7 +51,7 @@ function bash_main() {
 
 	echo "[*] (re)starting synergy"
 	pkill synergys
-	nohup synergys -f --no-tray --debug 'ERROR' --name 'DESKTOP-ALH8NSA' -c "$XDG_CONFIG_HOME/synergy.conf" --address "192.168.122.1:24800" &> /dev/null &
+	nohup nice -n -10 synergys -f --no-tray --debug 'ERROR' --name 'DESKTOP-ALH8NSA' -c "$XDG_CONFIG_HOME/synergy.conf" --address "192.168.122.1:24800" &> /dev/null &
 
 	echo "[*] attaching device '$AUDIODEV'"
 	$VIRSH attach-device $DOMAIN $DEVFILE

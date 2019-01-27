@@ -34,7 +34,7 @@ modules-left = bspwm
 modules-center = spotify
 modules-right = volume cpu wireless date
 
-modules-interval = 5
+modules-interval = 2
 
 ;==================================
 
@@ -103,10 +103,11 @@ interval = 1
 type = custom/script
 
 format = %{T4}  %{T-}<label>
-exec = awk 'NR == 3 {print $4}' /proc/net/wireless
-interval = ${root.modules-interval}
+;exec = awk 'NR == 3 {print $4}' /proc/net/wireless
+exec = $HOME/.scripts/wirelessstatus.sh
 
-label = %output:0:3% db
+interval = ${root.modules-interval}
+label = %output:0:3%
 
 
 ;==================================
