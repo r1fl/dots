@@ -1,4 +1,4 @@
-#include ".Xresources.d/xschemes/navy-and-ivory"
+!#include ".Xresources.d/xschemes/navy-and-ivory"
 
 URxvt.scrollBar: false
 URxvt.iso14755: false
@@ -8,7 +8,54 @@ URxvt.perl-lib: /usr/lib/urxvt/perl
 URxvt.perl-ext: default
 URxvt.perl-ext-common: default,resize-font
 
+!
+! fonts
+!
+
 !URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=11
 !URxvt.font: xft:Courier Prime Sans:size=11
 !URxvt.font: xft:ProFont for Powerline:style=Regular:size=11
 URxvt.font: xft:Roboto Mono Light for Powerline:style=Regular:size=11
+
+!
+! colors
+!
+
+! special
+*.foreground:   #f1ebeb
+*.background:   #222b36
+*.cursorColor:  #f1ebeb
+
+! black
+*.color0:       #48483e
+*.color8:       #76715e
+
+! red
+*.color1:       #dc2566
+*.color9:       #fa2772
+
+! green
+*.color2:       #8fc029
+*.color10:      #a7e22e
+
+! yellow
+*.color3:       #d4c96e
+*.color11:      #e7db75
+
+! blue
+!*.color4:       #55bcce
+*.color4:       #222b36
+*.color12:      #66d9ee
+
+! magenta
+*.color5:       #9358fe
+*.color13:      #ae82ff
+
+! cyan
+*.color6:       #56b7a5
+*.color14:      #66efd5
+
+! white
+*.color7:       #acada1
+*.color15:      #cfd0c2
+
