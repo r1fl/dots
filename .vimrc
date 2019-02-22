@@ -59,3 +59,7 @@ autocmd FileType python set sw=4
 autocmd FileType python set ts=4
 autocmd FileType python set sts=4
 
+autocmd FileType asm set syntax=nasm
+
+map <C-P> :NERDTreeToggle<CR>
+

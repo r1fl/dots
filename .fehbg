@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-fill '/home/me/.local/share/fehbg/starwars_kylo.jpg' 
+feh --bg-fill $HOME'/.local/share/fehbg/starwars_kylo.jpg' 
