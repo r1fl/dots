@@ -4,8 +4,13 @@ xorg
 xorg-xinit
 bspwm
 sxhkd
+i3-lock
+scrot
+imagemagick
 feh
 compton
+pulseaudio
+pulseaudio-alsa
 rxvt-unicode
 urxvt-resize-font-git
 zsh
@@ -13,10 +18,12 @@ xonsh
 polybar-git
 rofi
 dmenu
-ttf-font-awesome
 powerline
-xorg-font-util
 powerline-fonts-git
+ttf-font-awesome
+xorg-font-util
+ttf-roboto
+ttf-opensans
 vim
 neovim
 urxvt-perls
@@ -24,3 +31,6 @@ oh-my-zsh-git
 python
 python-pip
 python-dbus
+light
+firefox
+thunderbird
