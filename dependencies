@@ -1,4 +1,5 @@
 git
+openssh
 xorg
 xorg-xinit
 bspwm
@@ -6,6 +7,7 @@ sxhkd
 feh
 compton
 rxvt-unicode
+urxvt-resize-font-git
 zsh
 xonsh
 polybar-git
@@ -19,7 +21,6 @@ vim
 neovim
 urxvt-perls
 oh-my-zsh-git
-
 python
-ipython
-firefox
+python-pip
+python-dbus

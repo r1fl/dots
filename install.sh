@@ -4,7 +4,7 @@ TEMPD=$(mktemp -d)
 echo "[*] saving install files to $TEMPD"
 
 echo "[*] installing pikaur"
-pushd `pwd` > /dev/null
+pushd $(pwd) > /dev/null
 sudo pacman -S --needed base-devel git
 cd $TEMPD
 git clone https://aur.archlinux.org/pikaur.git
@@ -14,10 +14,10 @@ popd
 
 echo "[*] installing dependencies"
 pikaur -S `cat dependencies`
-# login shell -> zsh
+usermod -s $(which zsh) $USER
 
 echo "[*] exporting dots to $HOME"
-pushd `pwd` > /dev/null
+pushd $(pwd) > /dev/null
 cd $TEMPD
 git clone https://github.com/r1fl/dots.git
 cd dots
