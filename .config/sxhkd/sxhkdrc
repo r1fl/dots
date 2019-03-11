@@ -9,7 +9,7 @@ super + Return
 # program launcher
 super + d
 #	dmenu_run
-	rofi -show run
+	rofi -show run -m -1 -display-run 'run: '
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -25,8 +25,7 @@ super + alt + Escape
 
 # lock bspwm
 super + alt + Menu
-	i3lock -i $HOME/.local/share/fehbg/starwars_kylo.png
-	
+	$HOME/.scripts/lock.sh
 
 # close and kill
 super + {_,shift + }w
