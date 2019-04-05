@@ -3,10 +3,22 @@
 killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-if [[ $# > 0 ]]
+if [[ $# == 0 ]]
 then
-	for i in $@
+	echo "usage: $0 <bar1> <bar2>..."
+	exit 0
+fi
+
+if [[ $# == 1 ]]
+then
+	bar=$1
+	for mon in `polybar -m | cut -d':' -f1`
 	do
-		nohup polybar $i &> /dev/null &
+		MONITOR=$mon nohup polybar $bar &> /dev/null &
+	done
+else
+	for bar in $@
+	do
+		nohup polybar $bar &> /dev/null &
 	done
 fi

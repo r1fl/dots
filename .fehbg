@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-fill $HOME'/.local/share/fehbg/starwars_kylo.jpg' 
+feh --bg-scale --no-xinerama "$HONE/.local/share/fehbg/starwars-destroyer-5k.jpg"

@@ -12,10 +12,10 @@ URxvt.perl-ext-common: default,resize-font
 ! fonts
 !
 
-!URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=11
+URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=11
 !URxvt.font: xft:Courier Prime Sans:size=11
 !URxvt.font: xft:ProFont for Powerline:style=Regular:size=11
-URxvt.font: xft:Roboto Mono Light for Powerline:style=Regular:size=11
+!URxvt.font: xft:Roboto Mono Light for Powerline:style=Regular:size=11
 
 !
 ! colors
@@ -43,8 +43,8 @@ URxvt.font: xft:Roboto Mono Light for Powerline:style=Regular:size=11
 *.color11:      #e7db75
 
 ! blue
-!*.color4:       #55bcce
-*.color4:       #222b36
+*.color4:       #55bcce
+!*.color4:       #222b36
 *.color12:      #66d9ee
 
 ! magenta

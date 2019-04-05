@@ -9,7 +9,7 @@ super + Return
 # program launcher
 super + d
 #	dmenu_run
-	rofi -show run -m -1 -display-run 'run: '
+	rofi -show run -m -1 
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -80,7 +80,11 @@ super + {_,shift + }c
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+	bspc desktop -f {prev,next}
+
+# focus the monitor in the given direction
+super + shift + bracket{left,right}
+	bspc monitor {west,east} -f
 
 # focus the last node/desktop
 super + {grave,Tab}
@@ -160,3 +164,12 @@ XF86AudioNext
 XF86AudioPrev
 	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
+
+# brightness
+
+XF86MonBrightnessUp
+	rm /tmp/screenlayout.tmp; \
+	$HOME/.scripts/screenlayout.sh
+
+#XF86MonBrightnessDown
+#	xbacklight -10

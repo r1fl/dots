@@ -1,5 +1,7 @@
 #!/bin/bash
 
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+
 IMAGE=/tmp/i3lock.png
 SCREENSHOT="scrot $IMAGE" # 0.46s
 # SCREENSHOT="import -window root $IMAGE" # 1.35s
@@ -13,5 +15,7 @@ BLURTYPE="0x5" # 7.52s
 
 $SCREENSHOT
 convert $IMAGE -blur $BLURTYPE $IMAGE
-i3lock -i $IMAGE
+i3lock -nfi $IMAGE
 rm $IMAGE
+
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause

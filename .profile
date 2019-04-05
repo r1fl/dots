@@ -25,6 +25,7 @@ alias swd='pwd > /tmp/tmp.termwd' # save working directory
 alias rwd='cd $(cat /tmp/tmp.termwd)' # restore working directory
 
 alias pwnthon='ipython2 --profile=pwn2'
+alias objdump='objdump -M intel'
 alias docker='sudo docker'
 
 alias du='du -h'
@@ -34,6 +35,8 @@ alias pandoc='pandoc --data-dir=$HOME/.local/share/pandoc'
 alias diff='diff --color=auto'
 alias stopwatch="$HOME/.scripts/stopwatch.py"
 alias whatami='echo 0xB055'
+
+alias octopus='rdesktop -d AD -u itamarne octopus'
 
 #
 # FUNCTIONS
@@ -49,16 +52,28 @@ function mdview {
 	firefox $tmpfp
 }
 
-function sleep {
-	for i in `seq $1 -1 0`; do; echo -n "$i        \r"; /usr/bin/sleep 1; done 
+COLORS=('black' 'red' 'green' 'yellow' 'blue' 'magenta' 'cyan' 'white')
+
+function colortest {
+	for i in `seq ${#COLORS}`; do
+		let color=30+$i
+		printf "\e[${color}m${COLORS[$i]}"
+		printf "\e[1;37m\e[s | \e[0m"
+	done
+
+	printf "\e[u  \n"
 }
+
+#function sleep {
+#	for i in `seq $1 -1 0`; do; echo -n "$i        \r"; /usr/bin/sleep 1; done 
+#}
 
 #
 # ENVIROMENT VARS
 #
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export EDITOR=vim
+export EDITOR=nvim
 
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R -N -S' 
@@ -70,6 +85,9 @@ export TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S' # time command output format
 
 export PYTHONPATH=$PYTHONPATH:$HOME/Workspace/py/
 export IPYTHONDIR=$XDG_CONFIG_HOME'/ipython/'
-#export PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin/
+export PATH=$HOME/opt/cross/bin/:$PATH
 
 export VAGRANT_DEFAULT_PROVIDER='libvirt'
+
+xset -b
+

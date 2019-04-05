@@ -1,29 +1,18 @@
 #! /bin/sh
-#
-#===================
-# bspwmrc default
-#===================
-#
-# PRE CONFIG
-#
 
-~/.config/polybar/launch.sh top &
+$HOME/.scripts/screenlayout.sh
+
+# PRE CONFIG
+
 sxhkd & 
 compton -b &
-
-
-#
-# BSPC ENTRIES 
-#
-
-bspc monitor -d I II III IV V VI VII VIII IX X
 
 # Colors
 
 white='#ffffff'
 blue='#444444'
 
-# window border
+# Window border
 
 bspc config border_width 		1
 bspc config window_gap 			5
@@ -38,17 +27,15 @@ bspc config presel_feedback_color "$white"
 
 # Assignments
 
-bspc rule -a 'Firefox'	desktop='^2' state=tiled focus=on
-bspc rule -a 'Steam'	desktop='^8' state=tiled focus=on
-bspc rule -a 'discord'	desktop='^9' focus=on
+#bspc rule -a 'Firefox'	desktop='^2' state=tiled focus=on
+#bspc rule -a 'Steam'	desktop='^8' state=tiled focus=on
+#bspc rule -a 'discord'	desktop='^9' focus=on
 
 # 
-# POST CONFIG
+# Post config
 #
 
 setxkbmap -layout us,il -option grp:win_space_toggle
-$HOME/.fehbg
-
-alias lock="i3lock -i $HOME/.local/share/fehbg/starwars_kylo.png"
-
 redshift -l 32.451:34.4650
+
+#~/.scripts/poll.py $HOME/.screenlayout/layouts.json &> ~/poll.log 
