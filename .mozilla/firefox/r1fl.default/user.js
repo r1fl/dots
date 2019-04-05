@@ -21,5 +21,5 @@ user_pref("browser.feeds.showFirstRunUI", false);
 user_pref("general.useragent.override.themarker.com", "googlebot");
 
 user_pref("app.normandy.first_run", false);
-user_pref("browser.feeds.showFirstRunUI, false);
+user_pref("browser.feeds.showFirstRunUI", false);
 user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
