@@ -1,61 +1,45 @@
-!#include ".Xresources.d/xschemes/navy-and-ivory"
+#include ".Xresources.d/colors"
 
 URxvt.scrollBar: false
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
+!
+! Perl extensions
+!
+
 URxvt.perl-lib: /usr/lib/urxvt/perl
 URxvt.perl-ext: default
-URxvt.perl-ext-common: default,resize-font
+URxvt.perl-ext-common: default,resize-font,url-select
+
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
+URxvt.tabbed.tabbar-fg: 8
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    15
+URxvt.tabbed.tab-bg:    8
+URxvt.tabbed.new-button: false
+URxvt.tab-numbers: false
+
+URxvt.tabbed.tabcmds.1: N|shell
+URxvt.tabbed.tabcmds.2: R|root|su -
+URxvt.tabbed.tabcmds.3: M|mc|mc
 
 !
-! fonts
+! Keyboard shortcuts
 !
 
-URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=11
-!URxvt.font: xft:Courier Prime Sans:size=11
-!URxvt.font: xft:ProFont for Powerline:style=Regular:size=11
-!URxvt.font: xft:Roboto Mono Light for Powerline:style=Regular:size=11
+URxvt.keysym.M-u: perl:url-select:select_next
 
 !
-! colors
+! Fonts
 !
 
-! special
-*.foreground:   #f1ebeb
-*.background:   #222b36
-*.cursorColor:  #f1ebeb
+#define font0 xft:anonymous pro for powerline:style=regular:size=11
+#define font1 xft:dejavu sans:pixelsize=18
 
-! black
-*.color0:       #48483e
-*.color8:       #76715e
-
-! red
-*.color1:       #dc2566
-*.color9:       #fa2772
-
-! green
-*.color2:       #8fc029
-*.color10:      #a7e22e
-
-! yellow
-*.color3:       #d4c96e
-*.color11:      #e7db75
-
-! blue
-*.color4:       #55bcce
-!*.color4:       #222b36
-*.color12:      #66d9ee
-
-! magenta
-*.color5:       #9358fe
-*.color13:      #ae82ff
-
-! cyan
-*.color6:       #56b7a5
-*.color14:      #66efd5
-
-! white
-*.color7:       #acada1
-*.color15:      #cfd0c2
+URxvt.font: font0, font1
+URxvt.boldFont: font0, font1
+URxvt.letterSpace: 1
 

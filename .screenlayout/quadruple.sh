@@ -12,9 +12,9 @@ fi
 
 while ! (xrandr | grep -oP 'DP-1-3.*primary'); do
 	xrandr  --output DP-2-1 --off \
-			--output DP-1-3 --primary --mode 1920x1080 --pos 1080x840 --rotate normal \
+			--output DP-1-3 --primary --mode 1920x1080 --pos 1080x736 --rotate normal \
 			--output DP-2-2 --mode 1920x1080 --pos 0x0 --rotate left \
-			--output DP-1-2 --mode 1920x1080 --pos 3000x840 --rotate normal \
+			--output DP-1-2 --mode 1920x1080 --pos 3000x736 --rotate normal \
 			--output DP-2-3 --off \
 			--output eDP-1 --off \
 			--output DP-1-1 --off \
@@ -27,8 +27,8 @@ done
 if ! pgrep bspwm; then exit 0; fi # no bspwm instance is running yet
 
 bspc monitor 'DP-2-2' -g '1080x1920+0+0'
-bspc monitor 'DP-1-3' -g '1920x1080+1080+840'
-bspc monitor 'DP-1-2' -g '1920x1080+3000+840'
+bspc monitor 'DP-1-3' -g '1920x1080+1080+736'
+bspc monitor 'DP-1-2' -g '1920x1080+3000+736'
 
 # Create new desktops and import all nodes from old ones
 PREFIX='n'

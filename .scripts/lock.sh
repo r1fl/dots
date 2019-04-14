@@ -1,6 +1,9 @@
 #!/bin/bash
 
+notify-send -u critical 'Computer is locking now.'
 dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+
+#physlock
 
 IMAGE=/tmp/i3lock.png
 SCREENSHOT="scrot $IMAGE" # 0.46s

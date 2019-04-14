@@ -38,6 +38,8 @@ python-pip
 ipython
 ipython2
 python-dbus
+pandoc
+redshift
 light
 firefox
 thunderbird

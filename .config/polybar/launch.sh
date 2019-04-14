@@ -22,3 +22,8 @@ else
 		nohup polybar $bar &> /dev/null &
 	done
 fi
+
+while ! [[ $id ]]; do
+	id=`xdo id -N Polybar`
+done
+xdo lower $id
