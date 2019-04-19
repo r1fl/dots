@@ -166,7 +166,7 @@ label = %output:0:3%
 type = custom/script
 
 format = <label>
-exec = $HOME/.scripts/spotifystatus.py -p , -f '{play_pause}  {artist}: {song}'
+exec = $HOME/.scripts/spotifystatus.py -p , -f '{play_pause}  {artist}: {song}' -t 10
 interval = 0.1
 
 label-foreground = #ddd
