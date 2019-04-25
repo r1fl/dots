@@ -1,4 +1,4 @@
-#include ".Xresources.d/colors"
+#include ".Xresources.d/spacemacs"
 
 URxvt.scrollBar: false
 URxvt.iso14755: false
@@ -15,6 +15,7 @@ URxvt.perl-ext-common: default,resize-font,url-select
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
 
+URxvt.tabbed.autohide: true
 URxvt.tabbed.tabbar-fg: 8
 URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg:    15
@@ -22,9 +23,9 @@ URxvt.tabbed.tab-bg:    8
 URxvt.tabbed.new-button: false
 URxvt.tab-numbers: false
 
-URxvt.tabbed.tabcmds.1: N|shell
-URxvt.tabbed.tabcmds.2: R|root|su -
-URxvt.tabbed.tabcmds.3: M|mc|mc
+!URxvt.tabbed.tabcmds.1: N|shell
+!URxvt.tabbed.tabcmds.2: R|root|su -
+!URxvt.tabbed.tabcmds.3: M|mc|mc
 
 !
 ! Keyboard shortcuts
@@ -42,4 +43,8 @@ URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.font: font0, font1
 URxvt.boldFont: font0, font1
 URxvt.letterSpace: 1
+
+! Cursor
+Xcursor.theme: Adwaita
+Xcursor.size: 12
 

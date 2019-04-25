@@ -34,9 +34,10 @@ alias df='df -h'
 alias pandoc='pandoc --data-dir=$HOME/.local/share/pandoc'
 alias diff='diff --color=auto'
 alias stopwatch="$HOME/.scripts/stopwatch.py"
-alias whatami='echo 0xB055'
+alias whatami='echo 0x1ee7'
 
-alias octopus='rdesktop -d AD -u itamarne octopus'
+alias vim='echo "zsh: command not found: vim"'
+alias xfreerdp='xfreerdp /dynamic-resolution'
 
 #
 # FUNCTIONS
@@ -45,6 +46,8 @@ alias octopus='rdesktop -d AD -u itamarne octopus'
 export MDVIEWDIR="/tmp/mdview"
 
 function mdview {
+	# Render markdown files in browser
+
 	mkdir $MDVIEWDIR 2> /dev/null
 	tmpfp=$(TMPDIR=$MDVIEWDIR mktemp)
 
@@ -52,28 +55,42 @@ function mdview {
 	firefox $tmpfp
 }
 
-COLORS=('black' 'red' 'green' 'yellow' 'blue' 'magenta' 'cyan' 'white')
+function colortest256 {
+	# Draw colortable
 
-function colortest {
-	for i in `seq ${#COLORS}`; do
-		let color=30+$i
-		printf "\e[${color}m${COLORS[$i]}"
-		printf "\e[1;37m\e[s | \e[0m"
+	for i in {0..255}; do
+		printf "%03d: \e[38;5;${i}m" $i
+		printf "\e[48;5;${i}m"
+
+		printf "% 100s\e[0m\n" .
 	done
-
-	printf "\e[u  \n"
 }
 
-#function sleep {
-#	for i in `seq $1 -1 0`; do; echo -n "$i        \r"; /usr/bin/sleep 1; done 
-#}
+function pwndock {
+	# Control pwn docker
+
+	if [[ $# == 0 ]]; then
+		docker run  -it --rm --net=host \
+					--hostname pwn \
+					--name pwndock \
+					pwndock bash
+		return 0
+	elif [[ $1 == "-c" ]]; then
+		docker attach pwndock
+		return 0
+	fi
+
+	echo "usage: $0 [-c]"
+	return 1
+}
 
 #
 # ENVIROMENT VARS
 #
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export EDITOR=nvim
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R -N -S' 
@@ -82,12 +99,11 @@ export _JAVA_AWT_WM_NONREPARENTING=1 # java gui
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 export TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S' # time command output format
+export PYTHONDONTWRITEBYTECODE=1
 
 export PYTHONPATH=$PYTHONPATH:$HOME/Workspace/py/
 export IPYTHONDIR=$XDG_CONFIG_HOME'/ipython/'
 export PATH=$HOME/opt/cross/bin/:$PATH
 
 export VAGRANT_DEFAULT_PROVIDER='libvirt'
-
-xset -b
 

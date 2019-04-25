@@ -5,3 +5,6 @@ if [ $DISPLAY ]; then
 else
 	source $ZSH/.postomz
 fi
+
+autoload -Uz compinit
+compinit

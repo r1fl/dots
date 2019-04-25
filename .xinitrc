@@ -1,6 +1,6 @@
 #!/bin/sh
 
-userresources=$HOME/.Xresources
+userresources=$HOME/.Xdefaults
 usermodmap=$HOME/.Xmodmap
 userprofile=$HOME/.profile
 sysresources=/etc/X11/xinit/.Xresources
