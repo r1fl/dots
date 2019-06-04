@@ -73,7 +73,7 @@ function pwndock {
 		docker run  -it --rm --net=host \
 					--hostname pwn \
 					--name pwndock \
-					pwndock bash
+					grazfather/pwndock bash
 		return 0
 	elif [[ $1 == "-c" ]]; then
 		docker attach pwndock

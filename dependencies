@@ -3,9 +3,10 @@ openssh
 xorg
 xorg-xinit
 xdg-utils
+xdo
 bspwm
 sxhkd
-i3-lock
+i3lock
 scrot
 imagemagick
 feh
@@ -31,6 +32,8 @@ ttf-dejavu
 ttf-bitstream-vera
 vim
 neovim
+python-neovim
+vim-jedi
 urxvt-perls
 oh-my-zsh-git
 python

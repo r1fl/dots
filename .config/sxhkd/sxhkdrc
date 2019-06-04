@@ -173,3 +173,8 @@ XF86MonBrightnessUp
 
 #XF86MonBrightnessDown
 #	xbacklight -10
+
+Print
+    cd ~/mytemp/; \
+    scrot; \
+	cd -
