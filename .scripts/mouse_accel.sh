@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -lt 2 ]; then
-	echo "usage: $0 'SteelSeries Rival 300' 'Accel Speed' -1"
+	echo "usage: $0 'SteelSeries Rival 300' -1"
 	exit 1
 else
 	SEARCH=$1

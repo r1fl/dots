@@ -13,6 +13,7 @@ feh
 compton
 pulseaudio
 pulseaudio-alsa
+alsa-utils
 rxvt-unicode
 urxvt-resize-font-git
 zsh
@@ -45,4 +46,3 @@ pandoc
 redshift
 light
 firefox
-thunderbird
