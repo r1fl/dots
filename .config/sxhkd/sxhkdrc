@@ -44,7 +44,7 @@ super + g
 	bspc node -s biggest
 
 super + equal
-	bspc config window_gap 5
+	bspc config window_gap 10
 	
 super + {plus, minus}
 	let gap=$(bspc config window_gap){+,-}1; \

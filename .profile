@@ -22,7 +22,7 @@ alias unprivdo='sudo -u nobody'
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 
 alias swd='pwd > /tmp/tmp.termwd' # save working directory
-alias rwd='cd $(cat /tmp/tmp.termwd)' # restore working directory
+alias rwd='cd "$(cat /tmp/tmp.termwd)"' # restore working directory
 
 alias pwnthon='ipython2 --profile=pwn2'
 alias objdump='objdump -M intel'
@@ -49,10 +49,17 @@ function mdview {
 	# Render markdown files in browser
 
 	mkdir $MDVIEWDIR 2> /dev/null
-	tmpfp=$(TMPDIR=$MDVIEWDIR mktemp)
+	#tmpfp=$(TMPDIR=$MDVIEWDIR mktemp)
+
+	tmpfp="/tmp/$1.html"
+	tmpfp="$1.html"
+	touch $tmpfp
 
 	pandoc --template=github.html5 $1 -o $tmpfp 2> /dev/null
 	firefox $tmpfp
+
+	#sleep 5
+	#rm $tmpfp
 }
 
 function colortest256 {
@@ -67,21 +74,24 @@ function colortest256 {
 }
 
 function pwndock {
-	# Control pwn docker
+	# Start pwndocks
 
-	if [[ $# == 0 ]]; then
-		docker run  -it --rm --net=host \
-					--hostname pwn \
-					--name pwndock \
-					grazfather/pwndock bash
-		return 0
-	elif [[ $1 == "-c" ]]; then
-		docker attach pwndock
-		return 0
+	if [[ $# != 0 ]]; then
+		NAME=$1
+	else
+		NAME='pwn'
 	fi
 
-	echo "usage: $0 [-c]"
-	return 1
+	docker create -it --net=host \
+				--hostname pwndock-$NAME \
+				--name $NAME \
+				--cap-add 'SYS_PTRACE' \
+				-p '22:4141' \
+				-v `pwd`:/mnt\
+				mypwndock
+
+	docker start $NAME
+	docker exec -it $NAME zsh
 }
 
 #
@@ -103,7 +113,10 @@ export PYTHONDONTWRITEBYTECODE=1
 
 export PYTHONPATH=$PYTHONPATH:$HOME/Workspace/py/
 export IPYTHONDIR=$XDG_CONFIG_HOME'/ipython/'
-export PATH=$HOME/opt/cross/bin/:$PATH
+export PATH=$HOME/opt/cross/bin/:$HOME/.local/bin:$PATH
 
 export VAGRANT_DEFAULT_PROVIDER='libvirt'
 
+source virtualenvwrapper.sh
+
+xset -b

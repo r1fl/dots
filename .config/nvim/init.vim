@@ -32,6 +32,9 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'junegunn/fzf'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
+Plug 'sebastianmarkow/deoplete-rust'
+
+Plug 'mxw/vim-jsx'
 
 " Independent autocomplete
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
@@ -103,7 +106,7 @@ nnoremap <leader><c-u> viwU
 
 " Edit vimrc
 nnoremap <leader>ev :split $MYVIMRC<cr>:res -5<cr>
-nnoremap <leader>sv :so $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Surround with quotes
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>l
