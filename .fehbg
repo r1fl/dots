@@ -1,2 +1,0 @@
-#!/bin/sh
-feh --bg-scale --no-xinerama "$HOME/.local/share/fehbg/starwars-destroyer-5k.jpg"

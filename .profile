@@ -2,18 +2,18 @@
 
 # XINIT
 
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
-fi
+#if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+#  exec startx
+#fi
 
-setxkbmap -layout us,il -option grp:win_space_toggle
+#setxkbmap -layout us,il -option grp:win_space_toggle
 
 #
 # ALIASES
 #
 
-alias l='ls -al --color=auto'
-alias ls='ls --color=auto'
+#alias l='ls -al --color=auto'
+#alias ls='ls --color=auto'
 
 alias lock='i3lock -i $HOME/.local/share/fehbg/starwars_kylo.png'
 alias black='sleep 1; xset dpms force off'
@@ -32,7 +32,7 @@ alias du='du -h'
 alias df='df -h'
 
 alias pandoc='pandoc --data-dir=$HOME/.local/share/pandoc'
-alias diff='diff --color=auto'
+#alias diff='diff --color=auto'
 alias stopwatch="$HOME/.scripts/stopwatch.py"
 alias whatami='echo 0x1ee7'
 
@@ -114,9 +114,10 @@ export PYTHONDONTWRITEBYTECODE=1
 export PYTHONPATH=$PYTHONPATH:$HOME/Workspace/py/
 export IPYTHONDIR=$XDG_CONFIG_HOME'/ipython/'
 export PATH=$HOME/opt/cross/bin/:$HOME/.local/bin:$PATH
+export PATH='/Users/ineta/.cargo/bin':$PATH
 
 export VAGRANT_DEFAULT_PROVIDER='libvirt'
 
-source virtualenvwrapper.sh
+#source virtualenvwrapper.sh
 
-xset -b
+#xset -b

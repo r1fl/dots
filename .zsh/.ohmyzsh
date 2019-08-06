@@ -2,15 +2,15 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+ZSH=$HOME/.zsh/.oh-my-zsh/
 ZSH_CUSTOM=$HOME/.zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="agnoster"
+ZSH_THEME="agnoster"
 #ZSH_THEME="bira"
-ZSH_THEME="my_bira"
+#ZSH_THEME="my_bira"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -64,6 +64,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+#plugins=(docker)
 plugins=(docker git)
 
 
