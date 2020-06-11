@@ -26,4 +26,7 @@ fi
 while ! [[ $id ]]; do
 	id=`xdo id -N Polybar`
 done
-xdo lower $id
+
+for i in $id; do
+	xdo lower $id
+done

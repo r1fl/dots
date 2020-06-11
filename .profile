@@ -3,8 +3,13 @@
 # XINIT
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
+	exec startx
+	xset -b
 fi
+
+#if [[ $DISPLAY && $TERM == xterm* && ! $TMUX ]]; then
+#	exec tmux
+#fi
 
 setxkbmap -layout us,il -option grp:win_space_toggle
 
@@ -12,8 +17,11 @@ setxkbmap -layout us,il -option grp:win_space_toggle
 # ALIASES
 #
 
-alias l='ls -al --color=auto'
-alias ls='ls --color=auto'
+alias l='ls -al --color=always'
+alias ls='ls --color=always'
+alias rg='rg --color=always'
+
+alias grep='grep --color=always'
 
 alias lock='i3lock -i $HOME/.local/share/fehbg/starwars_kylo.png'
 alias black='sleep 1; xset dpms force off'
@@ -34,10 +42,11 @@ alias df='df -h'
 alias pandoc='pandoc --data-dir=$HOME/.local/share/pandoc'
 alias diff='diff --color=auto'
 alias stopwatch="$HOME/.scripts/stopwatch.py"
-alias whatami='echo 0x1ee7'
 
 alias vim='echo "zsh: command not found: vim"'
 alias xfreerdp='xfreerdp /dynamic-resolution'
+
+alias mdview="mdview.sh"
 
 #
 # FUNCTIONS
@@ -87,16 +96,32 @@ function pwndock {
 				--name $NAME \
 				--cap-add 'SYS_PTRACE' \
 				-p '22:4141' \
-				-v `pwd`:/mnt\
-				mypwndock
+				-p '4242:443' \
+				-v /tmp/.X11-unix:/tmp/.X11-unix \
+				-v `pwd`:/mnt \
+				noah
 
 	docker start $NAME
-	docker exec -it $NAME zsh
+	docker exec -it $NAME bash
+	#docker exec -it $NAME zsh
 }
+
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+}
+
+#fh() {
+#  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+#}
 
 #
 # ENVIROMENT VARS
 #
+
+export TERM='xterm-256color'
+
+export INIT_HIDPI_FACTOR=1.0
+export WINIT_X11_SCALE_FACTOR=1.0
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR='nvim'
@@ -113,10 +138,20 @@ export PYTHONDONTWRITEBYTECODE=1
 
 export PYTHONPATH=$PYTHONPATH:$HOME/Workspace/py/
 export IPYTHONDIR=$XDG_CONFIG_HOME'/ipython/'
-export PATH=$HOME/opt/cross/bin/:$HOME/.local/bin:$PATH
+#export PATH=$HOME/opt/cross/bin/:$HOME/.local/bin:$PATH
 
-export VAGRANT_DEFAULT_PROVIDER='libvirt'
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/opt/arm-linux-eabi/bin:$PATH
+
+export VAGRANT_DEFAULT_PROVIDER='virtualbox'
 
 source virtualenvwrapper.sh
 
-xset -b
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+

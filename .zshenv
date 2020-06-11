@@ -1,3 +1,3 @@
 #!/bin/sh
 
-export ZDOTDIR="$HOME/.zsh"
+export ZDOTDIR=$HOME/.zsh

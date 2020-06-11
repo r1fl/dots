@@ -9,15 +9,14 @@ if [[ ${#CONNECTED[@]} == 1 ]]; then
 	echo "running single"
 	$HOME/.screenlayout/single.sh $STATUSFILE
 elif [[ ${#CONNECTED[@]} == 2 ]]; then
-	#echo "running single"
-	#$HOME/.screenlayout/single.sh $STATUSFILE
 	echo "running double"
-	$HOME/.screenlayout/double.sh $STATUSFILE
+	#$HOME/.screenlayout/double.sh $STATUSFILE
 elif [[ ${#CONNECTED[@]} == 3 ]]; then
 	echo "running triple"
 	$HOME/.screenlayout/triple.sh $STATUSFILE
+	#xrandr -q &>> $HOME/asd
 elif [[ ${#CONNECTED[@]} == 4 ]]; then
 	echo "running quadruple"
-	$HOME/.screenlayout/quadruple.sh $STATUSFILE
+	#$HOME/.screenlayout/quadruple.sh $STATUSFILE
 fi
 
