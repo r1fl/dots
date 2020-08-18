@@ -140,6 +140,7 @@ export PYTHONPATH=$PYTHONPATH:$HOME/Workspace/py/
 export IPYTHONDIR=$XDG_CONFIG_HOME'/ipython/'
 #export PATH=$HOME/opt/cross/bin/:$HOME/.local/bin:$PATH
 
+export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.local/opt/arm-linux-eabi/bin:$PATH
 

@@ -2,6 +2,7 @@
 " italic comments
 " traverse complete list
 " cscope \ tags
+" tab mappings
 "
 " BOOKMARKS:
 " :help cmdline
@@ -14,56 +15,80 @@
 
 " exit select mode
 
-" 
-" Plugins
-"
+""" Plugins
 
 call plug#begin(stdpath('data') . '/plugged')
 
-" appearence
-Plug 'joshdick/onedark.vim'
+" airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'sickill/vim-monokai'
-"Plug 'liuchengxu/space-vim-dark'
 
-" autocomplete
+" colorschemes
+Plug 'joshdick/onedark.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'liuchengxu/space-vim-dark'
+Plug 'sickill/vim-monokai'
+
+" completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'zchee/deoplete-clang'
-"Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'deoplete-plugins/deoplete-jedi'
 
+" snippets 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-" misc
-Plug 'sheerun/vim-polyglot' " better syntax highlighting
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'jiangmiao/auto-pairs'
 
-"Plug 'tpope/vim-surround'
-Plug 'lepture/vim-jinja'
+" misc
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+"Plug 'jiangmiao/auto-pairs'
+Plug 'dense-analysis/ale' 		" linter
+Plug 'sheerun/vim-polyglot'  	" improved syntax files
+Plug 'junegunn/fzf.vim' 		" fzf commands and mappings
+Plug 'tpope/vim-fugitive'		" git wrapper
+
+Plug 'ryanoasis/vim-devicons'
+
+"Plug 'lepture/vim-jinja' " web dev
 "Plug 'vim-syntastic/syntastic'
-"Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
 "
-" Unfinished
+" Completion
 "
+
+"Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
+"Plug 'rust-lang/rust.vim'
+"let g:LanguageClient_serverCommands = {
+"    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
+"	\ }
+
 
 "inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 set noshowmode
+
+let g:deoplete#enable_at_startup = 1
 let g:jedi#show_call_signatures=2
 
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 let g:deoplete#sources#clang#include_default_arguments = 1
+if filereadable(expand("compile_commands.json"))
+	let g:deoplete#sources#clang#clang_complete_database = '.'
+endif
 
-let mapleader = "s"
-let maplocalleader = "\\"
+if filereadable(expand("cscope.out"))
+	cscope add cscope.out
+endif
 
-let g:deoplete#enable_at_startup = 1
+"
+" Unfinished
+"
 
 "let g:UltiSnipsListSnippets='<nop>'
 "let g:UltiSnipsExpandTrigger='<nop>'
@@ -75,7 +100,8 @@ let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 " Globals
 "
 
-
+let mapleader = "s"
+let maplocalleader = "\\"
 
 " Onedark
 let g:onedark_termcolors=16
@@ -103,7 +129,26 @@ set splitright nosplitbelow
 set ignorecase
 set magic
 set nohidden
-"set colorcolumn=72 " set only for python
+set colorcolumn=82
+set relativenumber
+
+set list
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+
+set completeopt=preview,menuone,longest
+
+" Preview windows
+
+augroup WindowManagement
+	autocmd!
+	autocmd WinEnter * call HandleWinEnter()
+augroup END
+
+function! HandleWinEnter()
+	if &previewwindow
+		set syntax=c
+	endif
+endfunction
 
 " Tab
 
@@ -115,6 +160,11 @@ augroup tabsettings
 	autocmd FileType * setlocal tabstop=4
 	autocmd FileType * setlocal shiftwidth=4
 augroup END
+
+" Toggle hl off when entering insert mode ...
+" autocmd InsertEnter * :setlocal nohlsearch
+" ... Toggle back on when leaving
+" autocmd InsertLeave * :setlocal hlsearch
 
 "
 " Mappings

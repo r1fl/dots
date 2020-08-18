@@ -5,15 +5,24 @@ font:
     size: 10.0
 
     normal:
-        family: Droid Sans Mono Slashed for Powerline
+        family: 'Symbols Nerd Font'
+        family: 'Cascadia Code'
+        #family: 'Source Code Pro'
+        #family: 'Droid Sans Mono Slashed for Powerline'
         style: Regular
         
     bold:
-        family: Droid Sans Mono Slashed for Powerline
+        family: 'Symbols Nerd Font'
+        #family: 'Source Code Pro'
+        family: 'Cascadia Code'
+        #family: 'Droid Sans Mono Slashed for Powerline'
         style: Bold
 
     italic:
-        family: Droid Sans Mono Slashed for Powerline
+        family: 'Symbols Nerd Font'
+        #family: 'Source Code Pro'
+        family: 'Cascadia Code'
+        #family: 'Droid Sans Mono Slashed for Powerline'
         style: Italic
 
 # Colors (One Dark)
