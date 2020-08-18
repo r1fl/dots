@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale --no-xinerama '/home/kylo/.local/share/fehbg/starwars-destroyer-5k.jpg' 
+feh --no-fehbg --bg-fill '/home/kylo/.local/share/fehbg/blessing.jpg' 

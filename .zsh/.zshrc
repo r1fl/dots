@@ -6,12 +6,11 @@ if [ $DISPLAY ]; then
 	source $ZPLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
 	#source $ZPLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
-	source $ZDOT/.postomz
+	source $ZDOT/.ttyrc
 fi
 
 autoload -Uz compinit
 compinit
-
 
 #source zsh-autosuggestions.zsh
 #eval "$(starship init zsh)"

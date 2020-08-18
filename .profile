@@ -7,7 +7,14 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	xset -b
 fi
 
-#if [[ $DISPLAY && $TERM == xterm* && ! $TMUX ]]; then
+# Wal
+
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
+
+# Tmux
+
+#if [[ $DISPLAY && ! $TMUX ]]; then
 #	exec tmux
 #fi
 
@@ -19,9 +26,11 @@ setxkbmap -layout us,il -option grp:win_space_toggle
 
 alias l='ls -al --color=always'
 alias ls='ls --color=always'
-alias rg='rg --color=always'
+
+alias rm='trash'
 
 alias grep='grep --color=always'
+alias rg='rg --color=always'
 
 alias lock='i3lock -i $HOME/.local/share/fehbg/starwars_kylo.png'
 alias black='sleep 1; xset dpms force off'
